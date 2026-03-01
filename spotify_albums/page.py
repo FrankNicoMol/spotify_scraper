@@ -58,7 +58,7 @@ def build_page(df, img_path: Path, output_path: Path, formspree_url: str = '', f
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>365 Albums — 2026</title>
+  <title>365 Albums 2026</title>
   <style>
     *, *::before, *::after {{ margin: 0; padding: 0; box-sizing: border-box; }}
 
@@ -321,7 +321,7 @@ def build_page(df, img_path: Path, output_path: Path, formspree_url: str = '', f
   <section class="hero">
     <div class="hero-content">
 
-      <p class="eyebrow">New Year's Resolution — 2026</p>
+      <p class="eyebrow">New Year's Resolution 2026</p>
       <p class="mission">Listen to<br>365 albums.</p>
 
       <div class="stats">
