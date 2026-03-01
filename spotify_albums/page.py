@@ -370,13 +370,18 @@ def build_page(df, img_path: Path, output_path: Path, formspree_url: str = '', f
 
     @media (max-width: 640px) {{
       .charts-grid {{ grid-template-columns: 1fr; }}
+      .content-section {{ padding: 1.5rem 1rem 4rem; }}
     }}
 
     .chart-box {{
       background: rgba(255,255,255,0.02);
       border: 1px solid #0f0f1a;
       padding: 1.5rem;
+      min-width: 0;
+      overflow: hidden;
     }}
+
+    .chart-box canvas {{ max-width: 100%; }}
 
     .chart-label {{
       font-size: 0.62rem;
