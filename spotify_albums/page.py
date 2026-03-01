@@ -27,7 +27,7 @@ def _table_rows(df):
     return '\n'.join(rows)
 
 
-def build_page(df, img_path: Path, output_path: Path):
+def build_page(df, img_path: Path, output_path: Path, formspree_url: str = ''):
     albums = len(df)
     total_min = int(df['duration_min'].sum())
     remaining = max(0, 365 - albums)
@@ -58,17 +58,17 @@ def build_page(df, img_path: Path, output_path: Path):
       min-height: 100vh;
       background: url('{img_rel}') center center / cover no-repeat;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
+      padding: 5% 5% 5%;
     }}
 
     .hero-content {{
       position: relative;
-      max-width: 520px;
-      width: calc(100% - 8rem);
+      width: 100%;
       padding: 3rem 2.5rem;
       text-align: left;
-      background: rgba(8, 8, 15, 0.4);
+      background: rgba(8, 8, 15, 0.7);
       border-radius: 16px;
       backdrop-filter: blur(2px);
     }}
@@ -209,6 +209,62 @@ def build_page(df, img_path: Path, output_path: Path):
 
     tbody td:nth-child(3),
     tbody td:nth-child(4) {{ color: #55556a; }}
+
+    /* ── Suggest form ── */
+    .suggest-section {{
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }}
+
+    .suggest-section .section-label {{ margin-bottom: 1.5rem; }}
+
+    .suggest-form {{
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 480px;
+    }}
+
+    .suggest-form input {{
+      background: #0f0f1a;
+      border: 1px solid #1a1a2e;
+      border-radius: 6px;
+      padding: 0.65rem 1rem;
+      color: #ddddf0;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.15s;
+    }}
+
+    .suggest-form input:focus {{ border-color: #7c3aed; }}
+
+    .suggest-form input::placeholder {{ color: #35354a; }}
+
+    .suggest-form button {{
+      align-self: flex-start;
+      padding: 0.6rem 1.4rem;
+      background: transparent;
+      border: 1px solid #7c3aed;
+      border-radius: 6px;
+      color: #a78bfa;
+      font-family: inherit;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }}
+
+    .suggest-form button:hover {{ background: #7c3aed; color: #fff; }}
+
+    .suggest-thanks {{
+      display: none;
+      font-size: 0.85rem;
+      color: #a78bfa;
+      margin-top: 0.5rem;
+    }}
   </style>
 </head>
 <body>
@@ -267,7 +323,32 @@ def build_page(df, img_path: Path, output_path: Path):
     </table>
   </section>
 
+  <section class="suggest-section">
+    <p class="section-label">Suggest an album</p>
+    <form class="suggest-form" id="suggest-form">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="text" name="album" placeholder="Album name or Spotify link" required>
+      <button type="submit">Send suggestion</button>
+    </form>
+    <p class="suggest-thanks" id="suggest-thanks">Thanks for the suggestion!</p>
+  </section>
+
   <script>
+    const FORMSPREE = '{formspree_url}';
+
+    document.getElementById('suggest-form').addEventListener('submit', async (e) => {{
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      try {{
+        const res = await fetch(FORMSPREE, {{ method: 'POST', body: data, headers: {{ 'Accept': 'application/json' }} }});
+        if (res.ok) {{
+          form.style.display = 'none';
+          document.getElementById('suggest-thanks').style.display = 'block';
+        }}
+      }} catch (_) {{}}
+    }});
+
     let sortCol = -1;
     let sortAsc = true;
 
