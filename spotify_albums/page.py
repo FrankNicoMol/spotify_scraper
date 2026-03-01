@@ -112,12 +112,11 @@ def build_page(df, img_path: Path, output_path: Path, formspree_url: str = '', f
     /* ── Hero ── */
     .hero {{
       position: relative;
-      min-height: 100vh;
       background: url('{img_rel}') center center / cover no-repeat;
       display: flex;
       align-items: flex-start;
       justify-content: center;
-      padding: 5% 5% 5%;
+      padding: 5%;
     }}
 
     .hero-content {{
@@ -302,12 +301,8 @@ def build_page(df, img_path: Path, output_path: Path, formspree_url: str = '', f
     /* ── Mosaic ── */
     .mosaic-grid {{
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
       gap: 4px;
-    }}
-
-    @media (max-width: 480px) {{
-      .mosaic-grid {{ grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }}
     }}
 
     .mosaic-item {{
