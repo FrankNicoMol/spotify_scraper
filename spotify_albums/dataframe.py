@@ -20,6 +20,7 @@ def build_dataframe(listened_path):
             'year': year,
             'duration_min': duration_min,
             'genres': genres,
+            'url': url,
         })
 
     return pd.DataFrame(rows)

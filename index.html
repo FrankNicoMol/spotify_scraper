@@ -148,13 +148,13 @@
 
     thead th:hover { color: #a78bfa; }
 
-    thead th::after {
+    thead th.sortable::after {
       content: ' ↕';
       opacity: 0.3;
     }
 
-    thead th.asc::after  { content: ' ↑'; opacity: 1; color: #a78bfa; }
-    thead th.desc::after { content: ' ↓'; opacity: 1; color: #a78bfa; }
+    thead th.sortable.asc::after  { content: ' ↑'; opacity: 1; color: #a78bfa; }
+    thead th.sortable.desc::after { content: ' ↓'; opacity: 1; color: #a78bfa; }
 
     tbody tr {
       border-bottom: 1px solid #0f0f1a;
@@ -172,14 +172,23 @@
     tbody td:nth-child(3),
     tbody td:nth-child(4) { color: #55556a; }
 
-    /* ── Suggest form ── */
-    .suggest-section {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 2rem 6rem;
+    tbody td:nth-child(6) { text-align: center; }
+
+    tbody td a {
+      color: #55556a;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.15s;
     }
 
-    .suggest-section .section-label { margin-bottom: 1.5rem; }
+    tbody td a:hover { color: #a78bfa; }
+
+    /* ── Suggest form (inside hero box) ── */
+    .hero-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin: 2rem 0;
+    }
 
     .suggest-form {
       display: flex;
@@ -189,8 +198,8 @@
     }
 
     .suggest-form input {
-      background: #0f0f1a;
-      border: 1px solid #1a1a2e;
+      background: rgba(8, 8, 15, 0.5);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 6px;
       padding: 0.65rem 1rem;
       color: #ddddf0;
@@ -264,6 +273,16 @@
         <div class="bar-fill"></div>
       </div>
 
+      <hr class="hero-divider">
+
+      <p class="section-label">Suggest an album</p>
+      <form class="suggest-form" id="suggest-form">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="text" name="album" placeholder="Album name or Spotify link" required>
+        <button type="submit">Send suggestion</button>
+      </form>
+      <p class="suggest-thanks" id="suggest-thanks">Thanks for the suggestion!</p>
+
     </div>
   </section>
 
@@ -272,65 +291,56 @@
     <table id="albums-table">
       <thead>
         <tr>
-          <th onclick="sortTable(0)">Artist</th>
-          <th onclick="sortTable(1)">Album</th>
-          <th onclick="sortTable(2)">Year</th>
-          <th onclick="sortTable(3)">Duration (min)</th>
-          <th onclick="sortTable(4)">Genres</th>
+          <th class="sortable" onclick="sortTable(0)">Artist</th>
+          <th class="sortable" onclick="sortTable(1)">Album</th>
+          <th class="sortable" onclick="sortTable(2)">Year</th>
+          <th class="sortable" onclick="sortTable(3)">Duration (min)</th>
+          <th class="sortable" onclick="sortTable(4)">Genres</th>
+          <th>Link</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>A.L.I.S.O.N</td><td>Space Station</td><td>2018</td><td>41.8</td><td>synthwave, chillwave, vaporwave</td></tr>
-<tr><td>A.L.I.S.O.N</td><td>Ultrasound</td><td>2022</td><td>33.7</td><td>synthwave, chillwave, vaporwave</td></tr>
-<tr><td>All Them Witches</td><td>Sleeping Through The War</td><td>2017</td><td>46.2</td><td>stoner rock, stoner metal, neo-psychedelic, psychedelic rock, space rock, sludge metal, blues rock</td></tr>
-<tr><td>Alt-J</td><td>An Awesome Wave</td><td>2012</td><td>44.0</td><td>indie, indie rock</td></tr>
-<tr><td>Alt-J</td><td>The Dream</td><td>2022</td><td>49.5</td><td>indie, indie rock</td></tr>
-<tr><td>Billy Joel</td><td>The Stranger (Legacy Edition)</td><td>1977</td><td>106.6</td><td>soft rock</td></tr>
-<tr><td>Cari Cari</td><td>One More Trip Around The Sun</td><td>2025</td><td>37.0</td><td>unknown</td></tr>
-<tr><td>DEADLETTER</td><td>Hysterical Strength</td><td>2024</td><td>48.4</td><td>post-punk</td></tr>
-<tr><td>DeWolff</td><td>Muscle Shoals</td><td>2024</td><td>50.3</td><td>blues rock</td></tr>
-<tr><td>Dijon</td><td>Absolutely</td><td>2021</td><td>31.6</td><td>unknown</td></tr>
-<tr><td>Eefje de Visser</td><td>Het Is</td><td>2013</td><td>42.2</td><td>nederpop</td></tr>
-<tr><td>Eefje de Visser</td><td>Nachtlicht</td><td>2016</td><td>42.3</td><td>nederpop</td></tr>
-<tr><td>Eefje de Visser</td><td>Vlijmscherp</td><td>2025</td><td>41.7</td><td>nederpop</td></tr>
-<tr><td>Elder</td><td>Dead Roots Stirring</td><td>2011</td><td>51.6</td><td>stoner metal, stoner rock, sludge metal, doom metal, space rock, psychedelic rock, drone metal, neo-psychedelic</td></tr>
-<tr><td>Elder</td><td>The Gold & Silver Sessions</td><td>2019</td><td>33.9</td><td>stoner metal, stoner rock, sludge metal, doom metal, space rock, psychedelic rock, drone metal, neo-psychedelic</td></tr>
-<tr><td>Fred again..</td><td>Ten days</td><td>2024</td><td>47.4</td><td>stutter house, house, edm</td></tr>
-<tr><td>Heath</td><td>Murmurations</td><td>2025</td><td>33.3</td><td>neo-psychedelic, psychedelic rock</td></tr>
-<tr><td>Hollow Ship</td><td>Future Remains</td><td>2020</td><td>35.5</td><td>neo-psychedelic, psychedelic rock</td></tr>
-<tr><td>I am batman</td><td>I am batman</td><td>2022</td><td>48.2</td><td>unknown</td></tr>
-<tr><td>Ian Clement</td><td>Drawing Daggers</td><td>2013</td><td>50.6</td><td>unknown</td></tr>
-<tr><td>Kadavar</td><td>I Just Want To Be A Sound</td><td>2025</td><td>45.3</td><td>stoner rock, stoner metal, sludge metal, doom metal, space rock, psychedelic rock</td></tr>
-<tr><td>Kryptograf</td><td>Kryptonomicon</td><td>2025</td><td>33.6</td><td>stoner rock, stoner metal, space rock, norsk rock, doom metal, sludge metal</td></tr>
-<tr><td>Leifur James</td><td>A Louder Silence</td><td>2018</td><td>50.7</td><td>experimental jazz</td></tr>
-<tr><td>MASSIVE HASSLE</td><td>Number One</td><td>2023</td><td>37.2</td><td>stoner rock, stoner metal</td></tr>
-<tr><td>Menahan Street Band</td><td>Make the Road By Walking</td><td>2008</td><td>34.9</td><td>retro soul</td></tr>
-<tr><td>Osees</td><td>Protean Threat</td><td>2020</td><td>38.5</td><td>neo-psychedelic, egg punk, psychedelic rock, garage rock, noise rock, krautrock</td></tr>
-<tr><td>Parcels</td><td>LOVED</td><td>2025</td><td>45.9</td><td>indie soul</td></tr>
-<tr><td>Radar Men from the Moon</td><td>Echo Forever</td><td>2012</td><td>50.9</td><td>space rock, stoner rock, krautrock, psychedelic rock, noise rock, stoner metal, drone metal, neo-psychedelic, acid rock</td></tr>
-<tr><td>Slomosa</td><td>Slomosa</td><td>2020</td><td>37.8</td><td>stoner rock, stoner metal, norsk rock, sludge metal</td></tr>
-<tr><td>Slomosa</td><td>Tundra Rock</td><td>2024</td><td>38.3</td><td>stoner rock, stoner metal, norsk rock, sludge metal</td></tr>
-<tr><td>The Beach Boys</td><td>Smiley Smile (Remastered)</td><td>1967</td><td>27.6</td><td>baroque pop</td></tr>
-<tr><td>The Bones of J.R. Jones</td><td>Radio Waves (Deluxe)</td><td>2025</td><td>62.8</td><td>southern gothic, blues rock, modern blues, country blues</td></tr>
-<tr><td>The Bones of J.R. Jones</td><td>Spirit's Furnace</td><td>2016</td><td>30.5</td><td>southern gothic, blues rock, modern blues, country blues</td></tr>
-<tr><td>Viagra Boys</td><td>Cave World</td><td>2022</td><td>40.5</td><td>post-punk, egg punk</td></tr>
-<tr><td>Warhaus</td><td>Karaoke Moon</td><td>2024</td><td>43.0</td><td>unknown</td></tr>
-<tr><td>Weval</td><td>Dreaming</td><td>2023</td><td>11.7</td><td>unknown</td></tr>
-<tr><td>Weval</td><td>Half Age EP</td><td>2013</td><td>29.1</td><td>unknown</td></tr>
-<tr><td>Weval</td><td>Weval</td><td>2016</td><td>51.2</td><td>unknown</td></tr>
-<tr><td>Yin Yin</td><td>Yatta!</td><td>2026</td><td>41.0</td><td>neo-psychedelic</td></tr>
+        <tr><td>A.L.I.S.O.N</td><td>Space Station</td><td>2018</td><td>41.8</td><td>synthwave, chillwave, vaporwave</td><td><a href="https://open.spotify.com/album/0S0y4THoNccPD2F5BWoS09?si=d8c7215905e0444d" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>A.L.I.S.O.N</td><td>Ultrasound</td><td>2022</td><td>33.7</td><td>synthwave, chillwave, vaporwave</td><td><a href="https://open.spotify.com/album/0GGvrCnvLk60XskHMF3Wqt?si=51849ca5930d4106" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>All Them Witches</td><td>Sleeping Through The War</td><td>2017</td><td>46.2</td><td>stoner rock, stoner metal, neo-psychedelic, psychedelic rock, space rock, sludge metal, blues rock</td><td><a href="https://open.spotify.com/album/7abGCgEyQPHebN5gDfLI2I?si=e7b79d62b55c4422" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Alt-J</td><td>An Awesome Wave</td><td>2012</td><td>44.0</td><td>indie, indie rock</td><td><a href="https://open.spotify.com/album/6HbJlAnTRhWae1F3lEwGkv?si=qEL_Ql07SMagPy_2ZVdUhg" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Alt-J</td><td>The Dream</td><td>2022</td><td>49.5</td><td>indie, indie rock</td><td><a href="https://open.spotify.com/album/5JzI3LUwkR64lHsVVRbiKO?si=10982156096b4b6a" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Billy Joel</td><td>The Stranger (Legacy Edition)</td><td>1977</td><td>106.6</td><td>soft rock</td><td><a href="https://open.spotify.com/album/1Mhn9VosyjtWn4dMPFlna6?si=3A1I0BkeR1CWDtjMVt3GqQ" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Cari Cari</td><td>One More Trip Around The Sun</td><td>2025</td><td>37.0</td><td>unknown</td><td><a href="https://open.spotify.com/album/5dJm26ISpb8WH1j1MY2cAi?si=UDbXaMhRR96W-FzE5UYU0A" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>DEADLETTER</td><td>Hysterical Strength</td><td>2024</td><td>48.4</td><td>post-punk</td><td><a href="https://open.spotify.com/album/0TIs1t3CvFQnwS6T7t2dol?si=509ac7aa9a2c43bd" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>DeWolff</td><td>Muscle Shoals</td><td>2024</td><td>50.3</td><td>blues rock</td><td><a href="https://open.spotify.com/album/4CgnYQ1ImIJaoxkgCmYXVt?si=60gFkBPVRXigEyb2i96TPQ" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Dijon</td><td>Absolutely</td><td>2021</td><td>31.6</td><td>unknown</td><td><a href="https://open.spotify.com/album/4E691gbRgo2Zb6ToII2DWO?si=FR-GBNCgSP2RvumcOlTI1w" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Eefje de Visser</td><td>Het Is</td><td>2013</td><td>42.2</td><td>nederpop</td><td><a href="https://open.spotify.com/album/1Yc0HbRlIZwaOY9jGpxMY5?si=462b2d7e4c4740cd" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Eefje de Visser</td><td>Nachtlicht</td><td>2016</td><td>42.3</td><td>nederpop</td><td><a href="https://open.spotify.com/album/2PSgh7zJPShRNvmC8KxdBU?si=48e702ea371042bc" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Eefje de Visser</td><td>Vlijmscherp</td><td>2025</td><td>41.7</td><td>nederpop</td><td><a href="https://open.spotify.com/album/1RTQqQrsiaNvJdCdTMBfhb?si=5fnKx6GZQDacgJLAtlmqhQ" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Elder</td><td>Dead Roots Stirring</td><td>2011</td><td>51.6</td><td>stoner metal, stoner rock, sludge metal, doom metal, space rock, psychedelic rock, drone metal, neo-psychedelic</td><td><a href="https://open.spotify.com/album/4N5iqXMXJUZMUzhxDqYQxp?si=CHnXfW6jQRif1wsfn-X7qA" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Elder</td><td>The Gold & Silver Sessions</td><td>2019</td><td>33.9</td><td>stoner metal, stoner rock, sludge metal, doom metal, space rock, psychedelic rock, drone metal, neo-psychedelic</td><td><a href="https://open.spotify.com/album/5fpJxj58dgvrJICnhTTMgv?si=532d52dd25564924" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Fred again..</td><td>Ten days</td><td>2024</td><td>47.4</td><td>stutter house, house, edm</td><td><a href="https://open.spotify.com/album/3DQueEd1Ft9PHWgovDzPKh?si=010c5c163d5241f0" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Heath</td><td>Murmurations</td><td>2025</td><td>33.3</td><td>neo-psychedelic, psychedelic rock</td><td><a href="https://open.spotify.com/album/5WcAxezP81vvEpyF4wXd6c?si=5_MIixLBSu-jHJczbfluCQ" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Hollow Ship</td><td>Future Remains</td><td>2020</td><td>35.5</td><td>neo-psychedelic, psychedelic rock</td><td><a href="https://open.spotify.com/album/0AZT0JAUcEJXQTfzB4MRIV?si=rRiha6ZyRKK6oDJ-KcYxQg" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>I am batman</td><td>I am batman</td><td>2022</td><td>48.2</td><td>unknown</td><td><a href="https://open.spotify.com/album/0rAcRhv5hDcq93qEf78s0E?si=2tOfMhhiTHWSa_v8K-YESQ" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Ian Clement</td><td>Drawing Daggers</td><td>2013</td><td>50.6</td><td>unknown</td><td><a href="https://open.spotify.com/album/6mveigIKhnMpTnIRfYtniA?si=Peh8SVAQSiOfqgwTDX6dxA" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Kadavar</td><td>I Just Want To Be A Sound</td><td>2025</td><td>45.3</td><td>stoner rock, stoner metal, sludge metal, doom metal, space rock, psychedelic rock</td><td><a href="https://open.spotify.com/album/148B89pZIIEGpNazsuiSz5?si=7603a68d9ea245dc" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Kryptograf</td><td>Kryptonomicon</td><td>2025</td><td>33.6</td><td>stoner rock, stoner metal, space rock, norsk rock, doom metal, sludge metal</td><td><a href="https://open.spotify.com/album/3lz5rEeYmThErSvIQSBTCj?si=iSKWlpcbSXuGXloWtbV2vg" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Leifur James</td><td>A Louder Silence</td><td>2018</td><td>50.7</td><td>experimental jazz</td><td><a href="https://open.spotify.com/album/2iBubkygaX6SHYMKLajvVb?si=4d5fa2c2132e4c70" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>MASSIVE HASSLE</td><td>Number One</td><td>2023</td><td>37.2</td><td>stoner rock, stoner metal</td><td><a href="https://open.spotify.com/album/2cWNDHUgVyo4Zxj7GE7PTa?si=132d5b0e1e404cf8" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Menahan Street Band</td><td>Make the Road By Walking</td><td>2008</td><td>34.9</td><td>retro soul</td><td><a href="https://open.spotify.com/album/6YN8jfCZLngnYeAoaWy4RC?si=67ba5cf48fda4da3" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Osees</td><td>Protean Threat</td><td>2020</td><td>38.5</td><td>neo-psychedelic, egg punk, psychedelic rock, garage rock, noise rock, krautrock</td><td><a href="https://open.spotify.com/album/16l3FJwjZooUHbU37sdeeI?si=sFoPXFOuTjyF2zDFYKLkuw" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Parcels</td><td>LOVED</td><td>2025</td><td>45.9</td><td>indie soul</td><td><a href="https://open.spotify.com/album/1rSbjr5U9J9rQ9sE7RxHFl?si=Tokz6UDMTsqByTTvWjHE7g" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Radar Men from the Moon</td><td>Echo Forever</td><td>2012</td><td>50.9</td><td>space rock, stoner rock, krautrock, psychedelic rock, noise rock, stoner metal, drone metal, neo-psychedelic, acid rock</td><td><a href="https://open.spotify.com/album/6nE5ZNfOwtsAeOiVGvDkWk?si=12e2f1a918284d8b" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Slomosa</td><td>Slomosa</td><td>2020</td><td>37.8</td><td>stoner rock, stoner metal, norsk rock, sludge metal</td><td><a href="https://open.spotify.com/album/4P0wMxlWvsilPWY5tbvVKS?si=1Cq5bTu7QZ-DfOZvCKIk_Q" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Slomosa</td><td>Tundra Rock</td><td>2024</td><td>38.3</td><td>stoner rock, stoner metal, norsk rock, sludge metal</td><td><a href="https://open.spotify.com/album/6ueXrPpJFG9aBBmMX2A6PF?si=Fl354WkJQLyuHPFmmOhAbw" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>The Beach Boys</td><td>Smiley Smile (Remastered)</td><td>1967</td><td>27.6</td><td>baroque pop</td><td><a href="https://open.spotify.com/album/37rNuexqEXWeSIOiJtn3A9?si=VEIjWG6OS6aim7gJnFEuIA" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>The Bones of J.R. Jones</td><td>Radio Waves (Deluxe)</td><td>2025</td><td>62.8</td><td>southern gothic, blues rock, modern blues, country blues</td><td><a href="https://open.spotify.com/album/4BBECT2QKT4LZPf9CPuvat?si=hOuBimgyRkupahUc_TunSA" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>The Bones of J.R. Jones</td><td>Spirit's Furnace</td><td>2016</td><td>30.5</td><td>southern gothic, blues rock, modern blues, country blues</td><td><a href="https://open.spotify.com/album/3cQWEV1dkuOosKa2EJNaxj?si=b6YugXh1QKi2-yWCWbUM9Q" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Viagra Boys</td><td>Cave World</td><td>2022</td><td>40.5</td><td>post-punk, egg punk</td><td><a href="https://open.spotify.com/album/2IC2TP7bnwkfl56vjabLQt?si=XLo97ymNQtis3myjZ5XoiQ" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Warhaus</td><td>Karaoke Moon</td><td>2024</td><td>43.0</td><td>unknown</td><td><a href="https://open.spotify.com/album/4wKRrC9FONCHBMgzX5NM3x?si=49974b0357da46d3" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Weval</td><td>Dreaming</td><td>2023</td><td>11.7</td><td>unknown</td><td><a href="https://open.spotify.com/album/2dMzewYgORjajV2nLV0iwV?si=dG90AHIBTDK1U7_Wp0FyCw" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Weval</td><td>Half Age EP</td><td>2013</td><td>29.1</td><td>unknown</td><td><a href="https://open.spotify.com/album/47mFpUDunR1rckC31EBT0g?si=360c47669e2845de" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Weval</td><td>Weval</td><td>2016</td><td>51.2</td><td>unknown</td><td><a href="https://open.spotify.com/album/51zkn8CSA5Tx2wKaGpl9ci?si=15f91552419745d1" target="_blank" rel="noopener">↗</a></td></tr>
+<tr><td>Yin Yin</td><td>Yatta!</td><td>2026</td><td>41.0</td><td>neo-psychedelic</td><td><a href="https://open.spotify.com/album/14miHHQBXPPlt61Ax0SK2W?si=c12cbeca00e04209" target="_blank" rel="noopener">↗</a></td></tr>
       </tbody>
     </table>
-  </section>
-
-  <section class="suggest-section">
-    <p class="section-label">Suggest an album</p>
-    <form class="suggest-form" id="suggest-form">
-      <input type="text" name="name" placeholder="Your name" required>
-      <input type="text" name="album" placeholder="Album name or Spotify link" required>
-      <button type="submit">Send suggestion</button>
-    </form>
-    <p class="suggest-thanks" id="suggest-thanks">Thanks for the suggestion!</p>
   </section>
 
   <script>
@@ -367,7 +377,7 @@
 
       headers.forEach((th, i) => {
         th.classList.remove('asc', 'desc');
-        if (i === col) th.classList.add(sortAsc ? 'asc' : 'desc');
+        if (i === col && th.classList.contains('sortable')) th.classList.add(sortAsc ? 'asc' : 'desc');
       });
 
       rows.sort((a, b) => {

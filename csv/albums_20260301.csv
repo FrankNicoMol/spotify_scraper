@@ -1,40 +1,40 @@
-artist,album,year,duration_min,genres
-A.L.I.S.O.N,Space Station,2018,41.8,"synthwave, chillwave, vaporwave"
-A.L.I.S.O.N,Ultrasound,2022,33.7,"synthwave, chillwave, vaporwave"
-All Them Witches,Sleeping Through The War,2017,46.2,"stoner rock, stoner metal, neo-psychedelic, psychedelic rock, space rock, sludge metal, blues rock"
-Alt-J,An Awesome Wave,2012,44.0,"indie, indie rock"
-Alt-J,The Dream,2022,49.5,"indie, indie rock"
-Billy Joel,The Stranger (Legacy Edition),1977,106.6,soft rock
-Cari Cari,One More Trip Around The Sun,2025,37.0,unknown
-DEADLETTER,Hysterical Strength,2024,48.4,post-punk
-DeWolff,Muscle Shoals,2024,50.3,blues rock
-Dijon,Absolutely,2021,31.6,unknown
-Eefje de Visser,Het Is,2013,42.2,nederpop
-Eefje de Visser,Nachtlicht,2016,42.3,nederpop
-Eefje de Visser,Vlijmscherp,2025,41.7,nederpop
-Elder,Dead Roots Stirring,2011,51.6,"stoner metal, stoner rock, sludge metal, doom metal, space rock, psychedelic rock, drone metal, neo-psychedelic"
-Elder,The Gold & Silver Sessions,2019,33.9,"stoner metal, stoner rock, sludge metal, doom metal, space rock, psychedelic rock, drone metal, neo-psychedelic"
-Fred again..,Ten days,2024,47.4,"stutter house, house, edm"
-Heath,Murmurations,2025,33.3,"neo-psychedelic, psychedelic rock"
-Hollow Ship,Future Remains,2020,35.5,"neo-psychedelic, psychedelic rock"
-I am batman,I am batman,2022,48.2,unknown
-Ian Clement,Drawing Daggers,2013,50.6,unknown
-Kadavar,I Just Want To Be A Sound,2025,45.3,"stoner rock, stoner metal, sludge metal, doom metal, space rock, psychedelic rock"
-Kryptograf,Kryptonomicon,2025,33.6,"stoner rock, stoner metal, space rock, norsk rock, doom metal, sludge metal"
-Leifur James,A Louder Silence,2018,50.7,experimental jazz
-MASSIVE HASSLE,Number One,2023,37.2,"stoner rock, stoner metal"
-Menahan Street Band,Make the Road By Walking,2008,34.9,retro soul
-Osees,Protean Threat,2020,38.5,"neo-psychedelic, egg punk, psychedelic rock, garage rock, noise rock, krautrock"
-Parcels,LOVED,2025,45.9,indie soul
-Radar Men from the Moon,Echo Forever,2012,50.9,"space rock, stoner rock, krautrock, psychedelic rock, noise rock, stoner metal, drone metal, neo-psychedelic, acid rock"
-Slomosa,Slomosa,2020,37.8,"stoner rock, stoner metal, norsk rock, sludge metal"
-Slomosa,Tundra Rock,2024,38.3,"stoner rock, stoner metal, norsk rock, sludge metal"
-The Beach Boys,Smiley Smile (Remastered),1967,27.6,baroque pop
-The Bones of J.R. Jones,Radio Waves (Deluxe),2025,62.8,"southern gothic, blues rock, modern blues, country blues"
-The Bones of J.R. Jones,Spirit's Furnace,2016,30.5,"southern gothic, blues rock, modern blues, country blues"
-Viagra Boys,Cave World,2022,40.5,"post-punk, egg punk"
-Warhaus,Karaoke Moon,2024,43.0,unknown
-Weval,Dreaming,2023,11.7,unknown
-Weval,Half Age EP,2013,29.1,unknown
-Weval,Weval,2016,51.2,unknown
-Yin Yin,Yatta!,2026,41.0,neo-psychedelic
+artist,album,year,duration_min,genres,url
+A.L.I.S.O.N,Space Station,2018,41.8,"synthwave, chillwave, vaporwave",https://open.spotify.com/album/0S0y4THoNccPD2F5BWoS09?si=d8c7215905e0444d
+A.L.I.S.O.N,Ultrasound,2022,33.7,"synthwave, chillwave, vaporwave",https://open.spotify.com/album/0GGvrCnvLk60XskHMF3Wqt?si=51849ca5930d4106
+All Them Witches,Sleeping Through The War,2017,46.2,"stoner rock, stoner metal, neo-psychedelic, psychedelic rock, space rock, sludge metal, blues rock",https://open.spotify.com/album/7abGCgEyQPHebN5gDfLI2I?si=e7b79d62b55c4422
+Alt-J,An Awesome Wave,2012,44.0,"indie, indie rock",https://open.spotify.com/album/6HbJlAnTRhWae1F3lEwGkv?si=qEL_Ql07SMagPy_2ZVdUhg
+Alt-J,The Dream,2022,49.5,"indie, indie rock",https://open.spotify.com/album/5JzI3LUwkR64lHsVVRbiKO?si=10982156096b4b6a
+Billy Joel,The Stranger (Legacy Edition),1977,106.6,soft rock,https://open.spotify.com/album/1Mhn9VosyjtWn4dMPFlna6?si=3A1I0BkeR1CWDtjMVt3GqQ
+Cari Cari,One More Trip Around The Sun,2025,37.0,unknown,https://open.spotify.com/album/5dJm26ISpb8WH1j1MY2cAi?si=UDbXaMhRR96W-FzE5UYU0A
+DEADLETTER,Hysterical Strength,2024,48.4,post-punk,https://open.spotify.com/album/0TIs1t3CvFQnwS6T7t2dol?si=509ac7aa9a2c43bd
+DeWolff,Muscle Shoals,2024,50.3,blues rock,https://open.spotify.com/album/4CgnYQ1ImIJaoxkgCmYXVt?si=60gFkBPVRXigEyb2i96TPQ
+Dijon,Absolutely,2021,31.6,unknown,https://open.spotify.com/album/4E691gbRgo2Zb6ToII2DWO?si=FR-GBNCgSP2RvumcOlTI1w
+Eefje de Visser,Het Is,2013,42.2,nederpop,https://open.spotify.com/album/1Yc0HbRlIZwaOY9jGpxMY5?si=462b2d7e4c4740cd
+Eefje de Visser,Nachtlicht,2016,42.3,nederpop,https://open.spotify.com/album/2PSgh7zJPShRNvmC8KxdBU?si=48e702ea371042bc
+Eefje de Visser,Vlijmscherp,2025,41.7,nederpop,https://open.spotify.com/album/1RTQqQrsiaNvJdCdTMBfhb?si=5fnKx6GZQDacgJLAtlmqhQ
+Elder,Dead Roots Stirring,2011,51.6,"stoner metal, stoner rock, sludge metal, doom metal, space rock, psychedelic rock, drone metal, neo-psychedelic",https://open.spotify.com/album/4N5iqXMXJUZMUzhxDqYQxp?si=CHnXfW6jQRif1wsfn-X7qA
+Elder,The Gold & Silver Sessions,2019,33.9,"stoner metal, stoner rock, sludge metal, doom metal, space rock, psychedelic rock, drone metal, neo-psychedelic",https://open.spotify.com/album/5fpJxj58dgvrJICnhTTMgv?si=532d52dd25564924
+Fred again..,Ten days,2024,47.4,"stutter house, house, edm",https://open.spotify.com/album/3DQueEd1Ft9PHWgovDzPKh?si=010c5c163d5241f0
+Heath,Murmurations,2025,33.3,"neo-psychedelic, psychedelic rock",https://open.spotify.com/album/5WcAxezP81vvEpyF4wXd6c?si=5_MIixLBSu-jHJczbfluCQ
+Hollow Ship,Future Remains,2020,35.5,"neo-psychedelic, psychedelic rock",https://open.spotify.com/album/0AZT0JAUcEJXQTfzB4MRIV?si=rRiha6ZyRKK6oDJ-KcYxQg
+I am batman,I am batman,2022,48.2,unknown,https://open.spotify.com/album/0rAcRhv5hDcq93qEf78s0E?si=2tOfMhhiTHWSa_v8K-YESQ
+Ian Clement,Drawing Daggers,2013,50.6,unknown,https://open.spotify.com/album/6mveigIKhnMpTnIRfYtniA?si=Peh8SVAQSiOfqgwTDX6dxA
+Kadavar,I Just Want To Be A Sound,2025,45.3,"stoner rock, stoner metal, sludge metal, doom metal, space rock, psychedelic rock",https://open.spotify.com/album/148B89pZIIEGpNazsuiSz5?si=7603a68d9ea245dc
+Kryptograf,Kryptonomicon,2025,33.6,"stoner rock, stoner metal, space rock, norsk rock, doom metal, sludge metal",https://open.spotify.com/album/3lz5rEeYmThErSvIQSBTCj?si=iSKWlpcbSXuGXloWtbV2vg
+Leifur James,A Louder Silence,2018,50.7,experimental jazz,https://open.spotify.com/album/2iBubkygaX6SHYMKLajvVb?si=4d5fa2c2132e4c70
+MASSIVE HASSLE,Number One,2023,37.2,"stoner rock, stoner metal",https://open.spotify.com/album/2cWNDHUgVyo4Zxj7GE7PTa?si=132d5b0e1e404cf8
+Menahan Street Band,Make the Road By Walking,2008,34.9,retro soul,https://open.spotify.com/album/6YN8jfCZLngnYeAoaWy4RC?si=67ba5cf48fda4da3
+Osees,Protean Threat,2020,38.5,"neo-psychedelic, egg punk, psychedelic rock, garage rock, noise rock, krautrock",https://open.spotify.com/album/16l3FJwjZooUHbU37sdeeI?si=sFoPXFOuTjyF2zDFYKLkuw
+Parcels,LOVED,2025,45.9,indie soul,https://open.spotify.com/album/1rSbjr5U9J9rQ9sE7RxHFl?si=Tokz6UDMTsqByTTvWjHE7g
+Radar Men from the Moon,Echo Forever,2012,50.9,"space rock, stoner rock, krautrock, psychedelic rock, noise rock, stoner metal, drone metal, neo-psychedelic, acid rock",https://open.spotify.com/album/6nE5ZNfOwtsAeOiVGvDkWk?si=12e2f1a918284d8b
+Slomosa,Slomosa,2020,37.8,"stoner rock, stoner metal, norsk rock, sludge metal",https://open.spotify.com/album/4P0wMxlWvsilPWY5tbvVKS?si=1Cq5bTu7QZ-DfOZvCKIk_Q
+Slomosa,Tundra Rock,2024,38.3,"stoner rock, stoner metal, norsk rock, sludge metal",https://open.spotify.com/album/6ueXrPpJFG9aBBmMX2A6PF?si=Fl354WkJQLyuHPFmmOhAbw
+The Beach Boys,Smiley Smile (Remastered),1967,27.6,baroque pop,https://open.spotify.com/album/37rNuexqEXWeSIOiJtn3A9?si=VEIjWG6OS6aim7gJnFEuIA
+The Bones of J.R. Jones,Radio Waves (Deluxe),2025,62.8,"southern gothic, blues rock, modern blues, country blues",https://open.spotify.com/album/4BBECT2QKT4LZPf9CPuvat?si=hOuBimgyRkupahUc_TunSA
+The Bones of J.R. Jones,Spirit's Furnace,2016,30.5,"southern gothic, blues rock, modern blues, country blues",https://open.spotify.com/album/3cQWEV1dkuOosKa2EJNaxj?si=b6YugXh1QKi2-yWCWbUM9Q
+Viagra Boys,Cave World,2022,40.5,"post-punk, egg punk",https://open.spotify.com/album/2IC2TP7bnwkfl56vjabLQt?si=XLo97ymNQtis3myjZ5XoiQ
+Warhaus,Karaoke Moon,2024,43.0,unknown,https://open.spotify.com/album/4wKRrC9FONCHBMgzX5NM3x?si=49974b0357da46d3
+Weval,Dreaming,2023,11.7,unknown,https://open.spotify.com/album/2dMzewYgORjajV2nLV0iwV?si=dG90AHIBTDK1U7_Wp0FyCw
+Weval,Half Age EP,2013,29.1,unknown,https://open.spotify.com/album/47mFpUDunR1rckC31EBT0g?si=360c47669e2845de
+Weval,Weval,2016,51.2,unknown,https://open.spotify.com/album/51zkn8CSA5Tx2wKaGpl9ci?si=15f91552419745d1
+Yin Yin,Yatta!,2026,41.0,neo-psychedelic,https://open.spotify.com/album/14miHHQBXPPlt61Ax0SK2W?si=c12cbeca00e04209

@@ -4,3 +4,5 @@
 links:        /path/to/your/links.md         # paste Spotify album URLs here
 listened:     /path/to/your/listened.md      # albums you have listened to
 not_listened: /path/to/your/not_listened.md  # albums queued up to listen
+
+formspree_url: https://formspree.io/f/YOUR_FORM_ID  # get this at formspree.io

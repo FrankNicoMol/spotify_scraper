@@ -22,6 +22,7 @@ def _table_rows(df):
             f'<td>{row["year"]}</td>'
             f'<td>{row["duration_min"]}</td>'
             f'<td>{row["genres"]}</td>'
+            f'<td><a href="{row["url"]}" target="_blank" rel="noopener">↗</a></td>'
             f'</tr>'
         )
     return '\n'.join(rows)
@@ -186,13 +187,13 @@ def build_page(df, img_path: Path, output_path: Path, formspree_url: str = ''):
 
     thead th:hover {{ color: #a78bfa; }}
 
-    thead th::after {{
+    thead th.sortable::after {{
       content: ' ↕';
       opacity: 0.3;
     }}
 
-    thead th.asc::after  {{ content: ' ↑'; opacity: 1; color: #a78bfa; }}
-    thead th.desc::after {{ content: ' ↓'; opacity: 1; color: #a78bfa; }}
+    thead th.sortable.asc::after  {{ content: ' ↑'; opacity: 1; color: #a78bfa; }}
+    thead th.sortable.desc::after {{ content: ' ↓'; opacity: 1; color: #a78bfa; }}
 
     tbody tr {{
       border-bottom: 1px solid #0f0f1a;
@@ -210,14 +211,23 @@ def build_page(df, img_path: Path, output_path: Path, formspree_url: str = ''):
     tbody td:nth-child(3),
     tbody td:nth-child(4) {{ color: #55556a; }}
 
-    /* ── Suggest form ── */
-    .suggest-section {{
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 2rem 6rem;
+    tbody td:nth-child(6) {{ text-align: center; }}
+
+    tbody td a {{
+      color: #55556a;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.15s;
     }}
 
-    .suggest-section .section-label {{ margin-bottom: 1.5rem; }}
+    tbody td a:hover {{ color: #a78bfa; }}
+
+    /* ── Suggest form (inside hero box) ── */
+    .hero-divider {{
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin: 2rem 0;
+    }}
 
     .suggest-form {{
       display: flex;
@@ -227,8 +237,8 @@ def build_page(df, img_path: Path, output_path: Path, formspree_url: str = ''):
     }}
 
     .suggest-form input {{
-      background: #0f0f1a;
-      border: 1px solid #1a1a2e;
+      background: rgba(8, 8, 15, 0.5);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 6px;
       padding: 0.65rem 1rem;
       color: #ddddf0;
@@ -302,6 +312,16 @@ def build_page(df, img_path: Path, output_path: Path, formspree_url: str = ''):
         <div class="bar-fill"></div>
       </div>
 
+      <hr class="hero-divider">
+
+      <p class="section-label">Suggest an album</p>
+      <form class="suggest-form" id="suggest-form">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="text" name="album" placeholder="Album name or Spotify link" required>
+        <button type="submit">Send suggestion</button>
+      </form>
+      <p class="suggest-thanks" id="suggest-thanks">Thanks for the suggestion!</p>
+
     </div>
   </section>
 
@@ -310,27 +330,18 @@ def build_page(df, img_path: Path, output_path: Path, formspree_url: str = ''):
     <table id="albums-table">
       <thead>
         <tr>
-          <th onclick="sortTable(0)">Artist</th>
-          <th onclick="sortTable(1)">Album</th>
-          <th onclick="sortTable(2)">Year</th>
-          <th onclick="sortTable(3)">Duration (min)</th>
-          <th onclick="sortTable(4)">Genres</th>
+          <th class="sortable" onclick="sortTable(0)">Artist</th>
+          <th class="sortable" onclick="sortTable(1)">Album</th>
+          <th class="sortable" onclick="sortTable(2)">Year</th>
+          <th class="sortable" onclick="sortTable(3)">Duration (min)</th>
+          <th class="sortable" onclick="sortTable(4)">Genres</th>
+          <th>Link</th>
         </tr>
       </thead>
       <tbody>
         {rows}
       </tbody>
     </table>
-  </section>
-
-  <section class="suggest-section">
-    <p class="section-label">Suggest an album</p>
-    <form class="suggest-form" id="suggest-form">
-      <input type="text" name="name" placeholder="Your name" required>
-      <input type="text" name="album" placeholder="Album name or Spotify link" required>
-      <button type="submit">Send suggestion</button>
-    </form>
-    <p class="suggest-thanks" id="suggest-thanks">Thanks for the suggestion!</p>
   </section>
 
   <script>
@@ -367,7 +378,7 @@ def build_page(df, img_path: Path, output_path: Path, formspree_url: str = ''):
 
       headers.forEach((th, i) => {{
         th.classList.remove('asc', 'desc');
-        if (i === col) th.classList.add(sortAsc ? 'asc' : 'desc');
+        if (i === col && th.classList.contains('sortable')) th.classList.add(sortAsc ? 'asc' : 'desc');
       }});
 
       rows.sort((a, b) => {{
