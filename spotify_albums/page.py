@@ -33,12 +33,12 @@ def _table_rows(df):
     for _, row in df.iterrows():
         rows.append(
             f'<tr>'
+            f'<td><a href="{row["url"]}" target="_blank" rel="noopener">↗</a></td>'
             f'<td>{row["artist"]}</td>'
             f'<td>{row["album"]}</td>'
             f'<td>{row["year"]}</td>'
             f'<td>{row["duration_min"]}</td>'
             f'<td>{row["genres"]}</td>'
-            f'<td><a href="{row["url"]}" target="_blank" rel="noopener">↗</a></td>'
             f'</tr>'
         )
     return '\n'.join(rows)
@@ -230,10 +230,10 @@ def build_page(df, img_path: Path, output_path: Path, formspree_url: str = '', f
       vertical-align: top;
     }}
 
-    tbody td:nth-child(3),
-    tbody td:nth-child(4) {{ color: #55556a; }}
+    tbody td:nth-child(4),
+    tbody td:nth-child(5) {{ color: #55556a; }}
 
-    tbody td:nth-child(6) {{ text-align: center; }}
+    tbody td:nth-child(1) {{ text-align: center; }}
 
     tbody td a {{
       color: #55556a;
@@ -370,12 +370,12 @@ def build_page(df, img_path: Path, output_path: Path, formspree_url: str = '', f
     <table id="albums-table">
       <thead>
         <tr>
-          <th class="sortable" onclick="sortTable(0)">Artist</th>
-          <th class="sortable" onclick="sortTable(1)">Album</th>
-          <th class="sortable" onclick="sortTable(2)">Year</th>
-          <th class="sortable" onclick="sortTable(3)">Duration (min)</th>
-          <th class="sortable" onclick="sortTable(4)">Genres</th>
-          <th>Link</th>
+          <th></th>
+          <th class="sortable" onclick="sortTable(1)">Artist</th>
+          <th class="sortable" onclick="sortTable(2)">Album</th>
+          <th class="sortable" onclick="sortTable(3)">Year</th>
+          <th class="sortable" onclick="sortTable(4)">Duration (min)</th>
+          <th class="sortable" onclick="sortTable(5)">Genres</th>
         </tr>
       </thead>
       <tbody>
